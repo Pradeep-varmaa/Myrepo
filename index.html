@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+    <script src="scr.js"></script>
+</head>
+<body>
+
+    <button id="button">Click Me </button>
+    <div>
+        <p class="para1"></p>
+        <p class="para2"></p>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    const btn = document.getElementById("button");
+    const p1 = document.getElementById("para1");
+    const p2 = document.getElementById("para2");
+
+
+    btn.addEventListener("click", () => {
+        navigator.geolocation.getCurrentPosition((position)=>{
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        });
+        
+    });
+
+   
+
+</script>
