@@ -10,8 +10,8 @@
 
     <button id="button">Click Me </button>
     <div>
-        <p class="para1"></p>
-        <p class="para2"></p>
+        <p id="para1"></p>
+        <p id="para2"></p>
     </div>
     
 </body>
@@ -19,17 +19,21 @@
 
 <script>
     const btn = document.getElementById("button");
-    const p1 = document.getElementById("para1");
-    const p2 = document.getElementById("para2");
+    
 
 
     btn.addEventListener("click", () => {
         navigator.geolocation.getCurrentPosition((position)=>{
             console.log(position.coords.latitude);
             console.log(position.coords.longitude);
+            const p1 = document.getElementById("para1").innerHTML = position.coords.latitude;
+            const p2 = document.getElementById("para2").innerHTML= position.coords.longitude;
+            
         });
         
+        
     });
+    const map = new google.map.Map()
 
    
 
