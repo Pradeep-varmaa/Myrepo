@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaflet + Node</title>
+  <title>Live Location</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <style>
     #map {
       height: 500px;
       width: 100%;
+      display: none;
     }
     button{
         height: 30px;
@@ -19,39 +21,13 @@
 </head>
 <body>
 
-    <button id="btn">click</button>
-  <div id="map"></div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    const btn = document.getElementById('btn')
-    btn.addEventListener("click",()=>{
-        navigator.geolocation.watchPosition(position =>{
-            let coord = [position.coords]
-            console.log(coord[0].latitude)
-
-            const map = L.map("map").setView([coord[0].latitude,coord[0].longitude], 7); // Andhra Pradesh coords
-
-    // Add OpenStreetMap tiles
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      Zoom: 3,
-      attribution: "© OpenStreetMap",
-    }).addTo(map);
-
-    // Marker
-    L.marker([coord[0].latitude, coord[0].longitude]).addTo(map)
-      .bindPopup("Live location")
-      .openPopup();
-      
-
-
-        })
-        
-    })
-
-
     
-  </script>
+    <div id="map"></div>
+
+    <div class="log"></div>
+    <button id="btn">click</button>
+
 </body>
+<script src="script.js"></script>
 </html>
 
